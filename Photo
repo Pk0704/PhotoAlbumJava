@@ -1,0 +1,40 @@
+package albumproject;
+
+public class Photo {
+    private boolean viewed = false; 
+    private String name;
+    private String photoDigest;
+    
+    
+    public Photo(String name, String photoDigest) {
+        this.name = name;
+        this.photoDigest = photoDigest;
+    }
+    
+   
+    public void viewPhoto() {
+        System.out.println("Now viewing " + name + ".");
+        viewed = true; 
+    }
+    
+    
+    public boolean isViewed() {
+        return viewed;
+    }
+    
+    
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (!(obj instanceof Photo)) return false;
+        Photo other = (Photo) obj;
+        return this.photoDigest.equals(other.photoDigest);
+    }
+    
+    // Optionally, override hashCode when overriding equals
+    @Override
+    public int hashCode() {
+        return photoDigest.hashCode();
+    }
+}
+
